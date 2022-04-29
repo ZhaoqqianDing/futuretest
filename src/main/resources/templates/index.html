@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="../css/password.css">
+   <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+
+   <script src="../js/jquery.min.js"></script>
+   <script src="../js/popper.min.js"></script>
+   <script src="../js/bootstrap.bundle.min.js"></script>
+   <script src="../js/jquery-3.0.0.min.js"></script>
+   <script src="../js/plugin.js"></script>
+</head>
+<body>
+
+
+<div class="container">
+
+   <div class="brand-title">Welcome to Future Dream Traveler</div>
+   <div class="inputs">
+      <label>Password: </label>
+      <input type="password" placeholder="Enter your password" id="password" />
+
+      <button id="enterButton">Enter</button>
+   </div>
+<div>
+   <button onclick="window.location.href ='/PageController/toQuiz'">quiz</button>
+</div>
+</div>
+</body>
+<script>
+
+      $("#enterButton").click(function() {
+         var password = document.getElementById("password").value;
+         $.ajax({
+            type: "post",
+            url: "/CommonController/checkPassword",
+            data: {password: password},
+            success:function(result) {
+               if(result=="true"){
+                  window.location.href="/PageController/toHomePage";
+               }
+               else{
+                  alert("Password is wrong, please try again");
+               }
+            },
+            error:function(result) {
+               alert('the internet connection is bad, please try again later');
+
+            }
+         });
+      });
+
+
+</script>
+</html>

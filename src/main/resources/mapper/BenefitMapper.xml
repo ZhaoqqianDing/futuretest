@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.futuredreamtraveller.demo.Mapper.BenefitMapper">
+
+    <resultMap id="BaseResultMap" type="com.futuredreamtraveller.demo.Entity.Benefit">
+        <result column="recyclable_type" jdbcType="VARCHAR" property="material" />
+        <result column="CO2 eq per kg" jdbcType="DOUBLE" property="CO2" />
+        <result column="Equivalent trees planted" jdbcType="DOUBLE" property="tree" />
+        <result column="H2O saved per kg(mega litres)" jdbcType="DOUBLE" property="water" />
+    </resultMap>
+
+    <select id="getBenefitByName" resultMap="BaseResultMap">
+    select * from environmental_benefits where recyclable_type=#{material}
+</select>
+    <select id="getAllBenefit" resultMap="BaseResultMap">
+    select * from environmental_benefits
+</select>
+
+
+</mapper>

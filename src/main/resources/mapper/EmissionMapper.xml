@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.futuredreamtraveller.demo.Mapper.EmissionMapper">
+    <resultMap id="BaseResultMap" type="com.futuredreamtraveller.demo.Entity.Emission">
+        <result column="transportation" jdbcType="VARCHAR" property="emissionName" />
+        <result column="grams_co2" jdbcType="DOUBLE" property="emissionNum" />
+        <result column="speed(km/h)" jdbcType="DOUBLE" property="speed" />
+    </resultMap>
+
+
+
+    <select id="getEmissionByName" resultType="double">
+    select grams_co2 from carbon_emissions where transportation=#{type}
+</select>
+
+    <select id="sortEmissionByCo2" resultMap="BaseResultMap">
+    select * from carbon_emissions order by grams_co2
+</select>
+
+    <select id="sortEmissionBySpeed" resultMap="BaseResultMap">
+    select * from carbon_emissions order by `speed(km/h)`
+</select>
+
+</mapper>

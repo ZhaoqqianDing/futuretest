@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="../js/quiz.js"></script>
+    <link rel="stylesheet" href="../css/quiz.css">
+    <link rel="stylesheet" href="../css/my_style.css">
+</head>
+<body>
+<style>
+    .crop{
+        margin-top: -25px;
+    }
+</style>
+<body onload="NextQuestion(0)">
+<!--<header>-->
+<!--    &lt;!&ndash; header inner &ndash;&gt;-->
+<!--    <div class="logo">-->
+<!--        <div class="crop"> <a href="#"><img src="../images/image9.png"></a> </div>-->
+<!--    </div>-->
+<!--    <div class="header">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">-->
+<!--                </div>-->
+<!--                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">-->
+<!--                    <div class="menu-area">-->
+<!--                        <div class="limit-box">-->
+<!--                            <nav class="main-menu">-->
+<!--                                <ul class="menu-area-main">-->
+<!--                                    <li class="active"> <a href="#">Home</a> </li>-->
+<!--                                    <li> <a href="/PageController/toMap">Calculator</a> </li>-->
+<!--                                    <li> <a href="/PageController/toQuiz">Quiz</a> </li>-->
+<!--                                </ul>-->
+<!--                            </nav>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; end header inner &ndash;&gt;-->
+<!--</header>-->
+<main>
+    <!-- creating a modal for when quiz ends -->
+    <div class="modal-container" id="score-modal">
+
+        <div class="modal-content-container">
+
+            <h1>Congratulations, Quiz Completed.</h1>
+
+            <div class="grade-details">
+                <p>Attempts : 10</p>
+                <p>Wrong Answers : <span id="wrong-answers"></span></p>
+                <p>Right Answers : <span id="right-answers"></span></p>
+                <p>Grade : <span id="grade-percentage"></span>%</p>
+                <p ><span id="remarks"></span></p>
+            </div>
+
+            <div class="modal-button-container">
+                <button onclick="closeScoreModal()">Continue</button>
+            </div>
+
+        </div>
+    </div>
+    <!-- end of modal of quiz details-->
+
+    <div class="game-quiz-container">
+
+        <div class="game-details-container">
+            <h1>Score : <span id="player-score"></span> / 5</h1>
+            <h1> Question : <span id="question-number"></span> / 5</h1>
+        </div>
+
+        <div class="game-question-container">
+            <h1 id="display-question"></h1>
+        </div>
+
+        <div class="game-options-container">
+
+            <div class="modal-container" id="option-modal">
+
+                <div class="modal-content-container">
+                    <h1>Please Pick An Option</h1>
+
+                    <div class="modal-button-container">
+                        <button onclick="closeOptionModal()">Continue</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <span>
+                    <input type="radio" id="option-one" name="option" class="radio" value="selectionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label>
+                </span>
+
+
+            <span>
+                    <input type="radio" id="option-two" name="option" class="radio" value="selectionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+                </span>
+
+
+            <span>
+                    <input type="radio" id="option-three" name="option" class="radio" value="selectionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
+
+
+            <span>
+                    <input type="radio" id="option-four" name="option" class="radio" value="selectionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+
+
+        </div>
+        <div class="next-button-container">
+            <button onclick="checkAnalyze()">Check answer</button>
+        </div>
+        <div class="next-button-container">
+            <button onclick="handleNextQuestion()">Next Question</button>
+        </div>
+        <div class="next-button-container">
+            <button onclick="retry()">Try another Quiz</button>
+        </div>
+        <div class="game-question-container">
+            <h1 id="display-analyze"></h1>
+        </div>
+    </div>
+
+</main>
+
+</body>
+
+
+<a href="/PageController/toHomePage">
+    <button class="btn btn-secondary" align="center">Go back！</button>
+</a>
+</body>
