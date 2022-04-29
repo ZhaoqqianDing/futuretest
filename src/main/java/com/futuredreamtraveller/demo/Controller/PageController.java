@@ -47,7 +47,7 @@ public class PageController {
     public String toMap(Model model){
         log.info("enter into calculator");
         model.addAttribute("prompt","Calculate and there will show the result");
-        return "map";
+        return "Map";
     }
 
 }
