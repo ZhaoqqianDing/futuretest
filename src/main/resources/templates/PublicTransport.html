@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Boocic</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="../css/my_style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="../images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!-- body -->
+<body class="main-layout">
+<style>
+    .header{
+        background: rgb(143,188,143);
+    }
+    .footer{
+        background: rgb(143,188,143);
+    }
+    .crop {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .crop img {
+        width: 272px;
+        height: 105px;
+        margin: -10px 0 0 -10px;
+    }
+    .text-start{
+        margin-bottom: 5px;
+    }
+    .text-end{
+        margin-bottom: 5px;
+    }
+    #data_visualization1{
+        padding:auto;
+        height: 100%;
+        width:100%;
+    }
+    #data_visualization2{
+        padding:auto;
+        height: 100%;
+        width:100%;
+    }
+    #p1Carousel .carousel-inner .carousel-item .about{
+        margin-top: 30px;
+        background: rgb(232, 255, 226);
+    }
+    .logo{
+        position: relative;
+        top: 10px;
+        left:175px;
+    }
+    .card img{
+        width: auto;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* make the size of modal fade equal to #service */
+    .modal-dialog{
+        position: fixed;
+        top: 15%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+    }
+    .address a:hover{
+        color: black;
+    }
+    .address a:visited{
+        color: black;
+
+    }
+    .address a:link{ color: black;}
+    .address a:active{ color: black;}
+    .crop{
+        margin-top: -3px;
+    }
+
+    #change_color{
+        /* change the color of the font */
+        color: rgb(255, 255, 255);
+    }
+</style>
+<!-- end loader -->
+<!-- header -->
+<header>
+    <!-- header inner -->
+    <div class="logo">
+        <div class="crop"> <a href="#"><img src="../images/image9.png"></a> </div>
+    </div>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                    <div class="menu-area">
+                        <div class="limit-box">
+                            <nav class="main-menu">
+                                <ul class="menu-area-main">
+                                    <li><a href="#">Home</a></li>
+                                    <li class="active"> <a href="/PageController/toMap">Calculator</a></li>
+                                    <!-- <li><a href="/PageController/toQuiz">Quiz</a></li> -->
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end header inner -->
+</header>
+<!-- end header -->
+<div class="container">
+    <div class="row" id="example1">
+        <p>&nbsp;</p>
+        <div align="center"><h2><b><span style="color:DarkSeaGreen">Public Transport</span></b></h2></div>
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <p>&nbsp;</p>
+            <h3><b><span style="color:DarkSeaGreen">Introduction</span></b></h3>
+            <p>Melbourne's public transport system includes rail, tram and bus services. Its tram network is the
+                largest in the world. Nearly 300 bus lines and 16 rail lines serve Greater Melbourne.
+                Melbourne's metropolitan area has a well-developed public transport network, with lanes
+                and walking paths criss-crossed, making travel convenient and economical.</p>
+            <p><img class="metro2" src="../images/metro2.jpg" width="1000" height="667"  alt="metro2"></p>
+            <h3><b><span style="color:DarkSeaGreen">Metro</span></b></h3>
+            <p>Melbourne has an urban heavy rail network of 16 lines, operated by Melbourne Metro Trains and
+                served by a fleet of 326 EMU trains. The urban network is considered a commuter-heavy rail
+                hybrid rather than a subway system with high-frequency and high-capacity services.</p>
+            <p><b>More Details:</b><a href="https://www.ptv.vic.gov.au/assets/PTV-default-site/Maps-and-Timetables-PDFs/Maps/Network-maps/
+            PTVH5514-Yarra-Tram-Network-Maps-2021.pdf">https://www.ptv.vic.gov.au/assets/PTV-default-site/Maps-and-
+                Timetables-PDFs/Maps/Network-maps/PTVH5514-Yarra-Tram-Network-Maps-2021.pdf</a></p>
+            <p><img class="metro" src="../images/metro.jpg" alt="metro"></p>
+            <h3><b><span style="color:DarkSeaGreen">Tram</span></b></h3>
+            <p>Melbourne has the world's largest tram network, comprising nearly 500 trams and 1,763 tram
+                stops on 250 kilometres (160 miles) of double track, 24 lines. It is run by Keolis Downer.
+                Two partial light rail routes are also part of the network. Most of the rest of the track is
+                mixed with general traffic, which also makes it one of the slowest tram networks in the world.
+                Trams run mainly in suburban areas, usually providing short to medium distances.</p>
+            <p><b>More Details:</b><a href="https://www.ptv.vic.gov.au/assets/PTV-default-site/Maps-and-Timetables-
+            PDFs/Maps/Network-maps/0c96079d1f/Victorian-train-network-map.pdf">https://www.ptv.vic.gov.au/assets/
+                PTV-default-site/Maps-and-Timetables-PDFs/Maps/Network-maps/0c96079d1f/Victorian-train-network-
+                map.pdf</a></p>
+            <p><img class="tram3" src="../images/tram3.jpeg" alt="tram3"></p>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row" id="example2">
+        <div class="col-1">
+        </div>
+        <div class="col-5">
+            <h3><b><span style="color:DarkSeaGreen">Bus</span></b></h3>
+            <p>Buses in Melbourne, Australia are a major form of public transport in Melbourne with an extensive
+                bus network. There are 346 routes with different frequencies of service operated by private bus
+                companies franchised by the state government.</p>
+        </div>
+        <div class="col-5">
+            <p><img class="Bus1" src="../images/Bus1.jpeg" alt="Bus1"></p>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+    <div class="row" id="example3">
+        <div class="col-1">
+        </div>
+        <div class="col-5">
+            <p><img class="myki" src="../images/myki.jpg" alt="myki"></p>
+        </div>
+        <div class="col-5">
+            <h5><b><span style="color:DarkSeaGreen">Myki Card - your transport ticket in Melbourne</span></b></h5>
+            <p>myki is a Melbourne train, tram and bus ticket. It is a reusable smart card that stores the value used to pay for public transport and can be used
+                repeatedly across all services.</p>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+    <div class="row" id="example4">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <h5><b><span style="color:DarkSeaGreen">Myki stores two types of value on one card - Myki pass
+                (travel days) and/or Myki money (dollar amount).</span></b></h5>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+    <div class="row" id="example5">
+        <div class="col-1">
+        </div>
+        <div class="col-3">
+            <h6><b><span style="color:DarkSeaGreen">Myki pass</span></b></h6>
+            <p>myki pass stores the number of travel days in a specified area and is valid for a certain
+                period of time. You specify the travel area and the exact duration of the pass - 7 consecutive
+                days or 28 to 365 consecutive days.</p>
+        </div>
+        <div class="col-7">
+            <h6><b><span style="color:DarkSeaGreen">Myki money</span></b></h6>
+            <p>myki money is the dollar value stored on myki to pay for your ride when you travel.</p>
+            <p>With myki money, you don't have to consider time or region, as the correct fare for your
+                itinerary is calculated both when and after you depart. Fares are calculated based on where
+                and when you travel and the correct fare is automatically deducted from your myki currency
+                balance.</p>
+            <p>myki money will initially be charged for 2 hours. If further travel is made beyond 2 hours,
+                it will be upgraded and capped at the daily fare.</p>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+    <div class="row" id="example6">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <h5><b><span style="color:DarkSeaGreen">You can purchase myki from:</span></b></h5>
+            <p>● Nearly 800 retailers with the myki logo, including all 7-Eleven stores</p>
+            <p>● Ticket windows at Premium train stations</p>
+            <p>● myki machines at all Metropolitan train stations and some accessible tram and bus
+                interchanges (full price myki only)</p>
+            <p>● Online or call 1800 800 007 (for Australian addresses only).</p>
+            <h6><b><span style="color:DarkSeaGreen">You will need to top up myki before travelling to pay
+                for the ride.Make sure you top up with enough value to cover your day's
+                travel expenses.</span></b></h6>
+            <h5><b><span style="color:DarkSeaGreen">You can top up your myki:</span></b></h5>
+            <p>● Immediately at nearly 800 retailers, including all 7-Eleven stores</p>
+            <p>● Immediately at the ticket window of the superior train station</p>
+            <p>● Immediately at myki machines at all train stations and selected accessible tram and bus interchanges</p>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+<style>
+    #example1{
+        background: rgb(255,255,255);
+        padding: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        height: 3000px;
+    }
+    #example2{
+        background: rgb(255,255,255);
+        padding: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        height: 300px;
+    }
+    #example3{
+        background: rgb(255,255,255);
+        padding: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        height: 300px;
+    }
+    #example4{
+        background: rgb(255,255,255);
+        padding: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        height: 80px;
+    }
+    #example5{
+        background: rgb(255,255,255);
+        padding: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        height: 300px;
+    }
+    #example6{
+        background: rgb(255,255,255);
+        padding: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        height: 400px;
+    }
+    .col-10{
+        /* add border and background color */
+        background: rgb(255, 255, 255);
+    }
+    .col-7{
+        /* add border and background color */
+        background: rgb(255, 255, 255);
+    }
+    .col-5{
+        /* add border and background color */
+        background: rgb(255, 255, 255);
+    }
+    .col-3{
+        /* add border and background color */
+        background: rgb(255, 255, 255);
+    }
+    .col-1{
+        /* add border and background color */
+        background: rgb(255, 255, 255);
+    }
+</style>
+</body>
+</html>

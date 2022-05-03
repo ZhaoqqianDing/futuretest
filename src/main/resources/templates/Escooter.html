@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Boocic</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="../css/my_style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="../images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!-- body -->
+<body class="main-layout">
+<style>
+    .header{
+        background: rgb(143,188,143);
+    }
+    .footer{
+        background: rgb(143,188,143);
+    }
+    .crop {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .crop img {
+        width: 272px;
+        height: 105px;
+        margin: -10px 0 0 -10px;
+    }
+    .text-start{
+        margin-bottom: 5px;
+    }
+    .text-end{
+        margin-bottom: 5px;
+    }
+    #data_visualization1{
+        padding:auto;
+        height: 100%;
+        width:100%;
+    }
+    #data_visualization2{
+        padding:auto;
+        height: 100%;
+        width:100%;
+    }
+    #p1Carousel .carousel-inner .carousel-item .about{
+        margin-top: 30px;
+        background: rgb(232, 255, 226);
+    }
+    .logo{
+        position: relative;
+        top: 10px;
+        left:175px;
+    }
+    .card img{
+        width: auto;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* make the size of modal fade equal to #service */
+    .modal-dialog{
+        position: fixed;
+        top: 15%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+    }
+    .address a:hover{
+        color: black;
+    }
+    .address a:visited{
+        color: black;
+
+    }
+    .address a:link{ color: black;}
+    .address a:active{ color: black;}
+    .crop{
+        margin-top: -3px;
+    }
+
+    #change_color{
+        /* change the color of the font */
+        color: rgb(255, 255, 255);
+    }
+</style>
+<!-- end loader -->
+<!-- header -->
+<header>
+    <!-- header inner -->
+    <div class="logo">
+        <div class="crop"> <a href="#"><img src="../images/image9.png"></a> </div>
+    </div>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                    <div class="menu-area">
+                        <div class="limit-box">
+                            <nav class="main-menu">
+                                <ul class="menu-area-main">
+                                    <li><a href="#">Home</a></li>
+                                    <li class="active"> <a href="/PageController/toMap">Calculator</a></li>
+                                    <li><a href="/PageController/toQuiz">Quiz</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end header inner -->
+</header>
+<!-- end header -->
+<div class="container">
+    <div class="row" id="example1">
+        <p>&nbsp;</p>
+        <div align="center"><h2><b><span style="color:DarkSeaGreen">E-Scooter</span></b></h2></div>
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+            <p>&nbsp;</p>
+            <h3><b><span style="color:DarkSeaGreen">What is a motorised scooter?</span></b></h3>
+            <p>A motorised scooter:</p>
+            <p> ● has the same features as a foot scooter.</p>
+            <p> ● can be propelled by an electric motor with a maximum power output of
+                <b><span style="color:DarkSeaGreen">200 watts or less</span></b>.</p>
+            <p> ● is not able to travel faster than <b><span style="color:DarkSeaGreen">10 km/h</span></b>
+                when ridden on level ground.</p>
+            <p>A motorised mobility device is not a motorised scooter. Information about these devices
+                can be found <a href="https://www.vicroads.vic.gov.au/safety-and-road-rules/pedestrian-safety
+                /motorised-mobility-devices">here</a>.</p>
+            <img  src="../images/ferry.jpg" alt="Ferry">
+            <p>At present, greater Melbourne has launched a new electric scooter for sightseeing and browsing.
+                The Victoria Government, in cooperation with Lime and Neuron, is piloting a shared electric
+                scooter rental service as a convenient, environmentally friendly, economical and efficient
+                way to travel.</p>
+            <p>For the next 12 months (from 1 February 2022), we’ll trial the use of shared e-scooters.
+                The trial is in partnership with the Victorian Government and will help determine whether
+                e-scooters can be safely regulated.</p>
+            <p>All you need to do is download the E-Scooters APP and enjoy a carefree skateboarding trip!</p>
+            <h4><b><span style="color:DarkSeaGreen">Using the e-scooters</span></b></h4>
+            <p>Download an app, follow the instructions, and you’re ready to take off.</p>
+            <p>Our partners have all the info you need:</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;● <a href="https://www.li.me/vehicles/scooter">Lime e-scooters</a></p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;● <a href="https://www.rideneuron.com/start-riding/">Neuron e-scooters</a></p>
+            <img  src="../images/Scooter1.png" alt="Scooter">
+            <h3><b><span style="color:DarkSeaGreen">The traffic rules</span></b></h3>
+            <p>500 boldly-branded e-scooters will be available across the City of Melbourne for use
+                on bike lanes, bike paths, shared paths and roads. A 20 km/h speed limit will apply.</p>
+            <p>E-scooter riders should behave the same way as bike riders and slow down to give way to
+                pedestrians. There will be special ‘no go’ and ‘go slow’ zones where speed limits are restricted
+                in high-traffic shared areas.</p>
+            <p>It’s important to note that e-scooters are not permitted on footpaths and roads where there is
+                a speed limit above 50 km/h, even if there is a protected bike lane.</p>
+            <p>E-scooters can be ridden within the boundary of the metro local government areas and will
+                be contained by geofencing. This following map outlines the area you can ride:</p>
+            <img src="../images/e-scooter-map.jpeg" alt="e-scooter-map">
+            <h5><b><span style="color:DarkSeaGreen">Basic e-scooter rules</span></b></h5>
+            <p>&nbsp;&nbsp;✔ Wear a helmet.</p>
+            <p>&nbsp;&nbsp;✔ Ride nicely. Give people space.</p>
+            <p>&nbsp;&nbsp;✔ Travel at a safe speed for the environment.</p>
+            <p>&nbsp;&nbsp;✔ Be respectful to pedestrians and other path users.</p>
+            <p>&nbsp;&nbsp;✔ Ride to the conditions.</p>
+            <p>&nbsp;&nbsp;✔ Consider others when parking.</p>
+            <p>&nbsp;&nbsp;✔ No passengers.</p>
+            <p>Before you jump on, check out the <a href="https://www.vicroads.vic.gov.au/safety-and-road-rules
+            /road-rules/a-to-z-of-road-rules/scooters-and-wheeled-recreational-devices">Victorian
+                road rules for e-scooters</a>.</p>
+            <p>We need to keep our transport networks safe, and there are <a href="https://www.vicroads.vic.gov.au
+            /safety-and-road-rules/road-safety-programs/e-scooter-trials-in-victoria">penalties</a>
+                for those who break the rules.</p>
+            <img src="../images/e-scooter-trial-rules-01.jpeg" alt="e-scooter-trial-rules">
+            <h5><b><span style="color:DarkSeaGreen">E-Scooter riders:</span></b></h5>
+            <p>● can <b><span style="color:DarkSeaGreen">only</span></b> ride commercial hire e-scooters by
+                approved operators</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;○ <a href="https://www.vicroads.vic.gov.au/safety-and-road-rules/road-rules/
+            a-to-z-of-road-rules/scooters-and-wheeled-recreational-devices">private e-scooter use will continue to
+                be prohibited</a> on public roads and road-related areas</p>
+            <p>● can <b><span style="color:DarkSeaGreen">only</span></b> ride in participating council areas(<a href="https://www.vicroads.vic.gov.au/safety-and-road
+            -rules/road-safety-programs/e-scooter-trials-in-victoria#C1">see maps below</a>)</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;○ operators will use geofencing technology to limit the devices to
+                these areas, and there are no-go and go-slow zones within trial areas</p>
+            <p>● can <b><span style="color:DarkSeaGreen">only</span></b> ride on bicycle lanes, shared paths and lower speed roads (up to 50km/h)</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;○ riders are <b><span style="color:DarkSeaGreen">not permitted</span></b> on roads with
+                a speed limit of 60km/h or higher, even if there is a protected bike lane</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;○ riders should <b><span style="color:DarkSeaGreen">slow down</span></b> and give way to pedestrians on shared paths</p>
+            <p>● must <b><span style="color:DarkSeaGreen">not</span></b> ride on footpaths</p>
+            <p>● will be automatically speed <b><span style="color:DarkSeaGreen">limited to 20km/h</span></b></p><p></p>
+            <p>● must be <b><span style="color:DarkSeaGreen">at least 18 years old</span></b></p>
+            <p>● must wear a <b><span style="color:DarkSeaGreen">helmet</span></b></p>
+            <p>● must <b><span style="color:DarkSeaGreen">not</span></b> ride under the influence of alcohol or drugs</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;○ riders must be <b><span style="color:DarkSeaGreen">below 0.05 BAC</span></b> and
+                <b><span style="color:DarkSeaGreen">have zero presence for prescribed drugs</span></b> (<a href="https://www.vicroads.vic.gov.au/safety-and-road-rules/road-safety-programs/
+                e-scooter-trials-in-victoria#C2">heavy fines and loss of licence penalties apply</a>)</p>
+            <p>● must <b><span style="color:DarkSeaGreen">not</span></b> consume intoxicating substances whilst riding</p>
+            <p>● must <b><span style="color:DarkSeaGreen">not</span></b> use a mobile device while riding</p>
+            <p>● must <b><span style="color:DarkSeaGreen">not</span></b> carry passengers</p>
+            <p>● must <b><span style="color:DarkSeaGreen">ride single file</span></b></p>
+            <p>● must park an e-scooter in accordance with council and operator requirements</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;○ in an upright position on the kerbside, in a manner that does not obstruct
+                the footpath for pedestrians</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;○ no-parking areas and preferred parking areas will be shown in the app</p>
+            <p>Penalties and infringements apply (<a href="https://www.vicroads.vic.gov.au/safety-and-road-rules/
+            road-safety-programs/e-scooter-trials-in-victoria#C3">see FAQs</a>)</p>
+            <img src="../images/Scooter2.png" alt="Scooter2">
+            <h3><b><span style="color:DarkSeaGreen">Driving precautions</span></b></h3>
+            <h5><b><span style="color:DarkSeaGreen">Lock your electric scooter</span></b></h5>
+            <p>You can lock the specified area by using the corresponding APP, and lock the area of the electric
+                scooter by using the APP to find the corresponding area. People only need to use the corresponding
+                electronic lock or use the corresponding electric scooter lock to lock the electric scooter. In case
+                of theft, people can ask the police for help.</p>
+            <h5><b><span style="color:DarkSeaGreen">Report a problem</span></b></h5>
+            <p>Lime and Neuron are responsible for all aspects of their operations. Any problems can be reported
+                directly 24 hours a day.</p>
+            <p>Illegal or unsafe use can be reported to Victoria Police.</p>
+            <p>Neuron: <a href="https://support.rideneuron.com/hc/en-us/categories/900000026803-Report-
+            an-Issue">https://support.rideneuron.com/hc/en-us/categories/900000026803-Report-an-Issue</a></p>
+            <p>Lime: <a href="https://help.li.me/hc/en-au/categories/360004847814-Reporting-and-Complaints-">
+                https://help.li.me/hc/en-au/categories/360004847814-Reporting-and-Complaints-</a></p>
+            <p>Victories Police: <a href="https://www.police.vic.gov.au/police-assistance-line-and-online-reporting">
+                https://www.police.vic.gov.au/police-assistance-line-and-online-reporting</a></p>
+            <p>If you want to know more details about E-Scooter, you can click this link:</p>
+            <p><a href="https://www.melbourne.vic.gov.au/parking-and-transport/Pages/e-scooters.aspx">
+                https://www.melbourne.vic.gov.au/parking-and-transport/Pages/e-scooters.aspx</a></p>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+</div>
+<style>
+    #example1{
+        background: rgb(255,255,255);
+        padding: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        height: 1000px;
+    }
+    .col-10{
+        /* add border and background color */
+        background: rgb(255, 255, 255);
+    }
+    .col-1{
+        /* add border and background color */
+        background: rgb(255, 255, 255);
+    }
+</style>
+</body>
+</html>

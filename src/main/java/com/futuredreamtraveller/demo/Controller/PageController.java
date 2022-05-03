@@ -38,11 +38,18 @@ public class PageController {
     public String toHomePage(){
         return "homePage";
     }
-    @RequestMapping("/toQuiz")
-    public String toQuiz(){
-        return "quiz";
+    @RequestMapping("/toBicycle")
+    public String toBike(){
+        return "Bicycle";
     }
-
+    @RequestMapping("/toBus")
+    public String toBus(){
+        return "PublicTransport";
+    }
+    @RequestMapping("/toEscooter")
+    public String toEscooter(){
+        return "Escooter";
+    }
     @RequestMapping("/toMap")
     public String toMap(Model model){
         log.info("enter into calculator");

@@ -49,7 +49,7 @@ public class CalculatorServiceImpl implements CalculatorService {
             recommandType="Short-haul flight (economy)";
         }
         else if(num>100){
-            ans[0]="light rail or tram";
+            ans[0]="light_rail_or_tram";
             ans[2]="driving";
             recommandType="Light rail and tram";
         }
